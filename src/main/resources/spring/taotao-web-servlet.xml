@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+   <mvc:annotation-driven /><!-- 主要是使用springmvc推荐的适配器和handlerMapping -->
+    <context:component-scan base-package="com.taotao.web.controller" />
+    <!-- <bean name="excel" class="cn.hgldp.view.ExcelView" /> -->
+    <mvc:default-servlet-handler />
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"></property>
+		<property name="suffix" value=".jsp"></property>
+		<!-- 查找顺序 -->
+		<property name="order" value="1"></property>
+    </bean>
+    
+  <!--   <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+        <property name="order" value="1"/>
+    </bean> -->
+   <!--  <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		设定默认编码
+		<property name="defaultEncoding" value="UTF-8"></property>
+		设定文件上传的最大值5MB，5*1024*1024,如果一次性上传多个文件，则只的时候所有文件的总和
+		<property name="maxUploadSize" value="5242880"></property>
+	</bean> -->
+    
+</beans>
